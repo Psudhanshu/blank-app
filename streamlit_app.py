@@ -16,6 +16,10 @@ client = chromadb.PersistentClient()
 alpha_vantage_key = st.secrets["api_keys"]["alpha_vantage"]
 openai.api_key = st.secrets["api_keys"]["openai"]
 
+# Set OpenAI API key for the library and environment
+openai.api_key = openai_api_key
+os.environ["OPENAI_API_KEY"] =openai_api_key
+
 # API URLs for Alpha Vantage
 news_url = f'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&apikey={alpha_vantage_key}&limit=50'
 tickers_url = f'https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey={alpha_vantage_key}'
